@@ -11,6 +11,7 @@ const StyledNavLink = styled(NavLink)`
   justify-content: center;
   padding: 8px;
   border-radius: 22px;
+  transition: background-color 0.3s ease;
 
   &.active {
     background-color: ${({ theme }) => theme.tokens.nuetral.surface.default};
