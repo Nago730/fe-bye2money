@@ -138,6 +138,6 @@ const theme = {
   colors,
   tokens,
   typography,
-};
+} as const;
 
 export default theme
