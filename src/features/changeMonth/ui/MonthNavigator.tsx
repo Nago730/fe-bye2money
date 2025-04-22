@@ -54,7 +54,7 @@ const SubText = styled.span`
       font-size: ${light14.fontSize};
       line-height: ${light14.lineHeight};
       font-weight: ${light14.fontWeight};
-      color: ${theme.nuetral.text.default};
+      color: ${theme.tokens.nuetral.text.default};
     `;
   }}
 `;
@@ -68,7 +68,7 @@ const MonthText = styled.span`
       font-size: ${serif48.fontSize};
       line-height: ${serif48.lineHeight};
       font-weight: ${serif48.fontWeight};
-      color: ${theme.nuetral.text.default};
+      color: ${theme.tokens.nuetral.text.default};
     `;
   }}
 `;

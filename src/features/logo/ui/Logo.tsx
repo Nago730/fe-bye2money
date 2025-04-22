@@ -20,7 +20,7 @@ const LogoText = styled.span`
       font-weight: ${serif.fontWeight};
       font-size: ${serif.fontSize};
       line-height: ${serif.lineHeight};
-      color: ${theme.neutral.text.default};
+      color: ${theme.tokens.nuetral.text.default};
     `;
   }}
 `;

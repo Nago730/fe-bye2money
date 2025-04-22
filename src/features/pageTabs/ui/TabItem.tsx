@@ -13,7 +13,7 @@ const StyledNavLink = styled(NavLink)`
   border-radius: 22px;
 
   &.active {
-    background-color: ${({ theme }) => theme.nuetral.surface.default};
+    background-color: ${({ theme }) => theme.tokens.nuetral.surface.default};
   }
 `;
 
