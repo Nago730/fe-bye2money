@@ -1,7 +1,24 @@
-import React from 'react';
+import { Logo } from '@/features/logo';
+import { MonthNavigator } from '@/features/changeMonth';
+import { TabMenu } from '@/features/pageTabs';
 
-const Header = () => {
-  return <header>Header</header>;
+import styled from '@emotion/styled';
+
+export const Header = () => {
+  return (
+    <Container>
+      <Logo />
+      <MonthNavigator />
+      <TabMenu />
+    </Container>
+  );
 };
 
-export default Header; 
+const Container = styled.header`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 846px;
+  padding: 24px 0px;
+`;
