@@ -48,13 +48,13 @@ const DateDisplay = styled.div`
 
 const SubText = styled.span`
   ${({ theme }) => {
-    const light14 = theme.typography.light14;
-
+    const { fontFamily, fontSize, lineHeight, fontWeight } = theme.typography.light14
+    
     return css`
-      font-family: ${light14.fontFamily};
-      font-size: ${light14.fontSize};
-      line-height: ${light14.lineHeight};
-      font-weight: ${light14.fontWeight};
+      font-family: ${fontFamily};
+      font-size: ${fontSize};
+      line-height: ${lineHeight};
+      font-weight: ${fontWeight};
       color: ${theme.tokens.nuetral.text.default};
     `;
   }}
@@ -62,13 +62,13 @@ const SubText = styled.span`
 
 const MonthText = styled.span`
   ${({ theme }) => {
-    const serif48 = theme.typography.serif48;
+    const { fontFamily, fontSize, lineHeight, fontWeight } = theme.typography.serif48;
 
     return css`
-      font-family: ${serif48.fontFamily};
-      font-size: ${serif48.fontSize};
-      line-height: ${serif48.lineHeight};
-      font-weight: ${serif48.fontWeight};
+      font-family: ${fontFamily};
+      font-size: ${fontSize};
+      line-height: ${lineHeight};
+      font-weight: ${fontWeight};
       color: ${theme.tokens.nuetral.text.default};
     `;
   }}

@@ -13,13 +13,13 @@ const LogoContainer = styled.div`
 const LogoText = styled.span`
   
   ${({ theme }) => {
-    const serif = theme.typography.serif24;
+    const { fontFamily, fontSize, lineHeight, fontWeight } = theme.typography.serif24;
 
     return css`
-      font-family: ${serif.fontFamily};
-      font-weight: ${serif.fontWeight};
-      font-size: ${serif.fontSize};
-      line-height: ${serif.lineHeight};
+      font-family: ${fontFamily};
+      font-weight: ${fontWeight};
+      font-size: ${fontSize};
+      line-height: ${lineHeight};
       color: ${theme.tokens.nuetral.text.default};
     `;
   }}
