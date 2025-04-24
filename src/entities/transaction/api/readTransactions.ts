@@ -1,7 +1,7 @@
 import { Transaction } from '../model/transactionModel';
 import { TRANSACTIONS_ENDPOINT } from './config';
 
-export const fetchTransactions = async (
+export const readTransactions = async (
   year: number,
   month: number
 ): Promise<Transaction[]> => {
@@ -9,4 +9,4 @@ export const fetchTransactions = async (
   const res = await fetch(url);
   if (!res.ok) throw new Error('데이터 불러오기 실패');
   return res.json();
-};
+}; 

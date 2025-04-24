@@ -1,6 +1,6 @@
 import { useEffect, useReducer } from 'react';
 import { initialTransactionState, transactionReducer } from '../store/transactionReducer';
-import { fetchTransactions } from '../api/fetchTransactions';
+import { readTransactions } from '../api';
 
 export const useTransactionStore = (
   year: number,
@@ -15,7 +15,7 @@ export const useTransactionStore = (
     const load = async () => {
       dispatch({ type: 'FETCH_START' });
       try {
-        const result = await fetchTransactions(year, month);
+        const result = await readTransactions(year, month);
         dispatch({ type: 'FETCH_SUCCESS', payload: result });
       } catch (err: any) {
         dispatch({ type: 'FETCH_ERROR', payload: err.message || '데이터 불러오기 실패' });
@@ -25,4 +25,4 @@ export const useTransactionStore = (
   }, [year, month]);
 
   return { ...state, dispatch };
-}; 
+};
