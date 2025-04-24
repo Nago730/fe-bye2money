@@ -1,5 +1,5 @@
 import { Logo } from '@/features/logo';
-import { MonthNavigator } from '@/features/changeMonth';
+import { MonthNavigator } from '@/features/dateNavigator';
 import { TabMenu } from '@/features/pageTabs';
 
 import styled from '@emotion/styled';
