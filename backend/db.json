@@ -1,0 +1,49 @@
+{
+    "transactions": [
+      {
+        "id": "1",
+        "date": "2025-04-01",
+        "year": 2025,
+        "month": 4,
+        "type": "income",
+        "category": "월급",
+        "content": "4월 급여",
+        "amount": 3000000,
+        "payment": "현금"
+      },
+      {
+        "id": "2",
+        "date": "2025-04-03",
+        "year": 2025,
+        "month": 4,
+        "type": "expense",
+        "category": "식비",
+        "content": "점심 식사",
+        "amount": -15000,
+        "payment": "카드"
+      },
+      {
+        "id": "3",
+        "date": "2025-04-05",
+        "year": 2025,
+        "month": 4,
+        "type": "expense",
+        "category": "교통",
+        "content": "지하철 요금",
+        "amount": -1350,
+        "payment": "카드"
+      },
+      {
+        "id": "4",
+        "date": "2025-04-10",
+        "year": 2025,
+        "month": 4,
+        "type": "expense",
+        "category": "의료/건강",
+        "content": "약국 구입",
+        "amount": -8000,
+        "payment": "현금"
+      }
+    ]
+  }
+  
