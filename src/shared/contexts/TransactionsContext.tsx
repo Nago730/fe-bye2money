@@ -1,29 +1,35 @@
 import { createContext, useContext, ReactNode } from 'react';
 import { useDateParams } from '@/shared/hooks/useDateParams';
-import { useTransactionStore } from '@/entities/transaction/hooks/useTransactionStore';
-import type { TransactionState, TransactionAction } from '@/entities/transaction/store/transactionReducer';
+import { useTransactionOperations } from '@/features/transactionOperations';
+import { TransactionOperations } from '@/features/transactionOperations/hooks/useTransactionOperations';
 
-export interface TransactionContextValue extends TransactionState {
-  dispatch: React.Dispatch<TransactionAction>;
-}
 
-const TransactionContext = createContext<TransactionContextValue | undefined>(undefined);
+const TransactionContext = createContext<TransactionOperations | undefined>(undefined);
 
 export const TransactionProvider = ({ children }: { children: ReactNode }) => {
   const { year, month } = useDateParams();
-
-  const { data, loading, error, dispatch } = useTransactionStore(year, month);
+  const {
+    data,
+    loading,
+    error,
+    loadTransactions,
+    addTransaction,
+    updateTransaction,
+    deleteTransaction
+  } = useTransactionOperations(year, month);
 
   return (
-    <TransactionContext.Provider value={{ data, loading, error, dispatch }}>
+    <TransactionContext.Provider
+      value={{ data, loading, error, loadTransactions, addTransaction, updateTransaction, deleteTransaction }}
+    >
       {children}
     </TransactionContext.Provider>
   );
 };
 
-export const useTransactionContext = (): TransactionContextValue => {
+export const useTransactionContext = (): TransactionOperations => {
   const context = useContext(TransactionContext);
-  if (context === undefined) {
+  if (!context) {
     throw new Error('useTransactionContext must be used within a TransactionProvider');
   }
   return context;

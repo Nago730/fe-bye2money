@@ -1,4 +1,5 @@
 import { useCallback } from 'react';
+import type { TransactionState } from '@/entities/transaction/store/transactionReducer';
 import {
   readTransactions,
   createTransaction,
@@ -7,6 +8,13 @@ import {
 } from '@/entities/transaction/api';
 import { useTransactionStore } from '@/entities/transaction/hooks/useTransactionStore';
 import { Transaction } from '@/entities/transaction/model/transactionModel';
+
+export interface TransactionOperations extends TransactionState {
+  loadTransactions: () => void;
+  addTransaction: (tx: Omit<Transaction, 'id'>) => Promise<void>;
+  updateTransaction: (tx: Transaction) => Promise<void>;
+  deleteTransaction: (id: string) => Promise<void>;
+}
 
 export const useTransactionOperations = (year: number, month: number) => {
   const { data, loading, error, dispatch } = useTransactionStore(year, month);
