@@ -1,10 +1,11 @@
 import { Transaction } from '../model/transactionModel';
+import { TRANSACTIONS_ENDPOINT } from './config';
 
 export const createTransaction = async (
   tx: Omit<Transaction, 'id'>
 ): Promise<Transaction> => {
   const res = await fetch(
-    `http://localhost:3001/transactions`,
+    TRANSACTIONS_ENDPOINT,
     {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -13,4 +14,4 @@ export const createTransaction = async (
   );
   if (!res.ok) throw new Error('추가 실패');
   return res.json();
-}; 
+};
