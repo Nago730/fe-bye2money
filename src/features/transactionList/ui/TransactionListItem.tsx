@@ -1,46 +1,45 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { css } from '@emotion/react';
 import { Transaction } from '@/entities/transaction/model/transactionModel';
 import { formatCurrency } from '@/shared/lib/format';
 import { useTransactionContext } from '@/shared/contexts/TransactionsContext';
 
-const Category = styled.span`
+interface CategoryProps {
+  category: string;
+}
+
+const Category = styled.span<CategoryProps>`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: ${({ theme, category }) => 
+    theme.categoryColors[category as keyof typeof theme.categoryColors] ||
+    theme.colors.pastel.perfume};
   width: 92px;
   height: 56px;
-  padding: 4px 8px;
-  box-sizing: border-box;
+  
+  ${({ theme }) => theme.typography.light12};
+  color: ${({ theme }) => theme.tokens.nuetral.text.default};
 `;
 
 const Description = styled.span`
   width: 400px;
-  ${({ theme }) => {
-    const { fontFamily, fontSize, lineHeight, fontWeight } = theme.typography.light14;
-    return css`
-      font-family: ${fontFamily};
-      font-weight: ${fontWeight};
-      font-size: ${fontSize};
-      line-height: ${lineHeight};
-      color: ${theme.tokens.nuetral.text.default};
-    `;
-  }}
+  ${({ theme }) => theme.typography.light14};
+  color: ${({ theme }) => theme.tokens.nuetral.text.default};
 `;
 
 const Payment = styled.span`
   width: 104px;
-  ${({ theme }) => {
-    const { fontFamily, fontSize, lineHeight, fontWeight } = theme.typography.light14;
-    return css`
-      font-family: ${fontFamily};
-      font-weight: ${fontWeight};
-      font-size: ${fontSize};
-      line-height: ${lineHeight};
-      color: ${theme.tokens.nuetral.text.default};
-    `;
-  }}
+  ${({ theme }) => theme.typography.light14};
+  color: ${({ theme }) => theme.tokens.nuetral.text.default};
 `;
 
 const AmountText = styled.span<{ type: 'income' | 'expense' }>`
+  width: 186px;
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 16px;
+  
   ${({ theme }) => theme.typography.light14};
   color: ${({ theme, type }) =>
     type === 'income'
@@ -48,11 +47,21 @@ const AmountText = styled.span<{ type: 'income' | 'expense' }>`
       : theme.tokens.brand.text.expense};
   transition: transform 0.3s;
   transform: translateX(0);
-`;
+  `;
 
 const DeleteButton = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  margin-right: 16px;
   border: none;
   background: none;
+  ${({ theme }) => theme.typography.semibold12};
+  color: ${({ theme }) => theme.tokens.danger.text.default};
   cursor: pointer;
   opacity: 0;
   transition: opacity 0.3s;
@@ -60,10 +69,9 @@ const DeleteButton = styled.button`
 
 const ItemWrapper = styled.div`
   display: flex;
-  gap: 16px;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  padding: 12px;
+  width: 100%;
   position: relative;
   &:hover {
     background-color: ${({ theme }) => theme.tokens.nuetral.surface.point};
@@ -85,14 +93,14 @@ export const TransactionListItem: React.FC<Props> = ({ transaction }) => {
 
   return (
     <ItemWrapper>
-      <Category>{transaction.category}</Category>
+      <Category category={transaction.category}>{transaction.category}</Category>
       <Description>{transaction.content}</Description>
       <Payment>{transaction.payment}</Payment>
       <AmountText type={transaction.type}>
         {formatCurrency(transaction.amount)}
       </AmountText>
       <DeleteButton onClick={() => deleteTransaction(transaction.id)}>
-        🗑️
+        삭제
       </DeleteButton>
     </ItemWrapper>
   );

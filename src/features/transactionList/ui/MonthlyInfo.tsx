@@ -7,21 +7,17 @@ const HeaderWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 846px;
+  width: 100%;
+
+  div {
+    display: flex;
+    gap: 8px;
+  }
 `;
 
 const SummaryText = styled.span`
-  ${({ theme }) => {
-    const { fontFamily, fontSize, lineHeight, fontWeight } = theme.typography.light12;
-    return css`
-      font-family: ${fontFamily};
-      font-weight: ${fontWeight};
-      font-size: ${fontSize};
-      line-height: ${lineHeight};
-      color: ${theme.tokens.nuetral.text.default};
-    `;
-  }}
-  margin-right: 8px;
+  ${({ theme }) => theme.typography.light12};
+  ${({ theme }) => theme.tokens.nuetral.text.default};
 `;
 
 const Filters = styled.div`
@@ -33,6 +29,9 @@ const Filters = styled.div`
     align-items: center;
     gap: 4px;
     cursor: pointer;
+
+    ${({ theme }) => theme.typography.light12};
+    ${({ theme }) => theme.tokens.nuetral.text.default};
   }
 `;
 
@@ -56,7 +55,10 @@ export const MonthlyInfo: React.FC<MonthlyInfoProps> = ({
   onToggleExpense,
 }) => (
   <HeaderWrapper>
-    <SummaryText>전체 내역 {totalCount}건</SummaryText>
+    <div>
+      <SummaryText>전체 내역</SummaryText>
+      <SummaryText>{totalCount}건</SummaryText>
+    </div>
     <Filters>
       <label>
         <input
@@ -64,7 +66,7 @@ export const MonthlyInfo: React.FC<MonthlyInfoProps> = ({
           checked={showIncome}
           onChange={onToggleIncome}
         />
-        수입 {formatCurrency(incomeTotal, false)}
+        <span>수입 {formatCurrency(incomeTotal, false)}</span>
       </label>
       <label>
         <input
@@ -72,7 +74,7 @@ export const MonthlyInfo: React.FC<MonthlyInfoProps> = ({
           checked={showExpense}
           onChange={onToggleExpense}
         />
-        지출 {formatCurrency(expenseTotal, false)}
+        <span>지출 {formatCurrency(expenseTotal, false)}</span>
       </label>
     </Filters>
   </HeaderWrapper>

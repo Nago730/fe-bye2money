@@ -10,17 +10,22 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: 40px;
+  width: 846px;
 `;
 
 const Section = styled.div`
   display: flex;
   flex-direction: column;
   gap: 16px;
+  width: 100;
 `;
 
 const ItemsWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  width: 100;
+  border-top: 0.5px solid ${({ theme }) => theme.tokens.nuetral.border.default};
+  border-bottom: 0.5px solid ${({ theme }) => theme.tokens.nuetral.border.default};
 `;
 
 export const TransactionList: React.FC = () => {

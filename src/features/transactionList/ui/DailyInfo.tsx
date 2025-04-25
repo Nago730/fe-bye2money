@@ -10,21 +10,15 @@ const Wrapper = styled.div`
 `;
 
 const DateLabel = styled.span`
-  ${({ theme }) => {
-    const { fontFamily, fontSize, lineHeight, fontWeight } = theme.typography.light12;
-    return css`
-      font-family: ${fontFamily};
-      font-weight: ${fontWeight};
-      font-size: ${fontSize};
-      line-height: ${lineHeight};
-      color: ${theme.tokens.nuetral.text.default};
-    `;
-  }}
+  ${({ theme }) => theme.typography.serif16};
+  color: ${({ theme }) => theme.tokens.nuetral.text.default};
 `;
 
 const Totals = styled.div`
   display: flex;
   gap: 16px;
+  ${({ theme }) => theme.typography.serif16};
+  color: ${({ theme }) => theme.tokens.nuetral.text.default};
 `;
 
 interface DailyInfoProps {
