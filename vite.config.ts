@@ -5,7 +5,11 @@ import path from 'path';
 
 export default defineConfig({
   plugins: [
-    react(),
+    react({
+      babel: {
+        plugins: ['@emotion/babel-plugin'],
+      },
+    }),
     svgr(),
   ],
   resolve: {
