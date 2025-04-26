@@ -4,7 +4,7 @@ import { TabMenu } from '@/features/pageTabs';
 
 import styled from '@emotion/styled';
 
-export const Header = () => {
+export const HeaderWidget = () => {
   return (
     <Container>
       <Logo />

@@ -1,16 +1,16 @@
 import { Outlet } from 'react-router-dom';
 import styled from '@emotion/styled';
-import { Header } from '@/widgets/Header';
+import { HeaderWidget } from '@/widgets/HeaderWidget';
 import { AppStateProvider } from './providers/AppStateProvider';
 
 const App = () => (
   <AppStateProvider>
     <Container>
       <Background />
-      <Header />
-      <Main>
+      <HeaderWidget />
+      <Page>
         <Outlet />
-      </Main>
+      </Page>
     </Container>
   </AppStateProvider>
 );
@@ -35,8 +35,7 @@ const Background = styled.div`
   z-index: -1;
 `;
 
-
-const Main = styled.main`
-  width: 100%;
-  max-width: 846px;
+const Page = styled.main`
+  display: flex;
+  justify-content: center;
 `;
