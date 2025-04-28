@@ -90,7 +90,7 @@ const typography = {
     lineHeight: '32px',
     fontWeight: 'normal',
   },
-  serif16: {
+  serif14: {
     fontFamily: 'Chosunilbo_myungjo, serif',
     fontSize: '14px',
     lineHeight: '16px',
@@ -129,7 +129,7 @@ const typography = {
   light12: {
     fontFamily: 'Pretendard, sans-serif',
     fontSize: '12px',
-    lineHeight: '16px',
+    lineHeight: '24px',
     fontWeight: '300',
   },
 };

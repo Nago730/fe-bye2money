@@ -10,14 +10,14 @@ const Wrapper = styled.div`
 `;
 
 const DateLabel = styled.span`
-  ${({ theme }) => theme.typography.serif16};
+  ${({ theme }) => theme.typography.serif14};
   color: ${({ theme }) => theme.tokens.nuetral.text.default};
 `;
 
 const Totals = styled.div`
   display: flex;
   gap: 16px;
-  ${({ theme }) => theme.typography.serif16};
+  ${({ theme }) => theme.typography.serif14};
   color: ${({ theme }) => theme.tokens.nuetral.text.default};
 `;
 
