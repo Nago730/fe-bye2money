@@ -20,5 +20,6 @@ const Container = styled.header`
   justify-content: space-between;
   align-items: center;
   width: 846px;
+  margin-top: 16px; 
   padding: 24px 0px;
 `;
