@@ -135,23 +135,30 @@ const typography = {
 };
 
 const categoryColors = {
-  '교통': tokens.colorchip[70],
   '생활': tokens.colorchip[90],
-  '용돈': colors.pastel.chenin,
   '쇼핑/뷰티': tokens.colorchip[30],
   '의료/건강': tokens.colorchip[50],
-  '월급': tokens.colorchip[20],
-  '기타 수입': colors.pastel.glacier,
   '식비': tokens.colorchip[60],
+  '교통': tokens.colorchip[70],
   '문화/여가': colors.pastel.perfume,
   '미분류': colors.pastel.lavenderPink,
-}
+  '월급': tokens.colorchip[20],
+  '기타 수입': tokens.colorchip[10],
+  '용돈': tokens.colorchip[40],
+};
+
+const iconDimensions = {
+  small: { width: 16, height: 16 },
+  regular: { width: 24, height: 24 },
+  large: { width: 40, height: 40 },
+} as const;
 
 const theme = {
   colors,
   tokens,
   typography,
   categoryColors,
+  iconDimensions,
 } as const;
 
-export default theme
+export default theme;
