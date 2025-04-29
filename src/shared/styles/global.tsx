@@ -7,7 +7,8 @@ const GlobalStyle = () => (
 
       @font-face {
         font-family: 'Chosunilbo_myungjo';
-        src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Chosunilbo_myungjo.woff') format('woff');
+        src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Chosunilbo_myungjo.woff')
+          format('woff');
         font-weight: normal;
         font-style: normal;
       }
@@ -18,11 +19,12 @@ const GlobalStyle = () => (
         box-sizing: border-box;
       }
 
-      html, body {
+      html,
+      body {
         width: 100%;
         height: 100%;
         font-family: 'Pretendard', sans-serif;
-        background-color: #FBFCFD;
+        background-color: #fbfcfd;
         color: #000000;
       }
 
@@ -33,8 +35,12 @@ const GlobalStyle = () => (
         font-family: inherit;
       }
 
-      input, select, textarea {
+      input,
+      select,
+      textarea {
         font-family: inherit;
+        border: none;
+        outline: none;
       }
 
       a {
@@ -45,4 +51,4 @@ const GlobalStyle = () => (
   />
 );
 
-export default GlobalStyle; 
+export default GlobalStyle;
