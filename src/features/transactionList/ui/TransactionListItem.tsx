@@ -12,12 +12,12 @@ const Category = styled.span<CategoryProps>`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: ${({ theme, category }) => 
+  background-color: ${({ theme, category }) =>
     theme.categoryColors[category as keyof typeof theme.categoryColors] ||
     theme.colors.pastel.perfume};
   width: 92px;
   height: 56px;
-  
+
   ${({ theme }) => theme.typography.light12};
   color: ${({ theme }) => theme.tokens.nuetral.text.default};
 `;
@@ -39,7 +39,7 @@ const AmountText = styled.span<{ type: 'income' | 'expense' }>`
   display: flex;
   justify-content: flex-end;
   margin-right: 16px;
-  
+
   ${({ theme }) => theme.typography.light14};
   color: ${({ theme, type }) =>
     type === 'income'
@@ -47,7 +47,7 @@ const AmountText = styled.span<{ type: 'income' | 'expense' }>`
       : theme.tokens.brand.text.expense};
   transition: transform 0.3s;
   transform: translateX(0);
-  `;
+`;
 
 const DeleteButton = styled.button`
   display: flex;
@@ -73,6 +73,8 @@ const ItemWrapper = styled.div`
   align-items: center;
   width: 100%;
   position: relative;
+  background-color: ${({ theme }) => theme.tokens.nuetral.surface.weak};
+
   &:hover {
     background-color: ${({ theme }) => theme.tokens.nuetral.surface.point};
   }
@@ -93,7 +95,9 @@ export const TransactionListItem: React.FC<Props> = ({ transaction }) => {
 
   return (
     <ItemWrapper>
-      <Category category={transaction.category}>{transaction.category}</Category>
+      <Category category={transaction.category}>
+        {transaction.category}
+      </Category>
       <Description>{transaction.content}</Description>
       <Payment>{transaction.payment}</Payment>
       <AmountText type={transaction.type}>
@@ -104,4 +108,4 @@ export const TransactionListItem: React.FC<Props> = ({ transaction }) => {
       </DeleteButton>
     </ItemWrapper>
   );
-}; 
+};
