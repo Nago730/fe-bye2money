@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import { InputBarWidget } from '@/widgets/InputBarWidget';
 import { TransactionListWidget } from '@/widgets/TransactionListWidget';
+import { InputBarProvider } from '@/features/inputBar/store/InputBarContext';
 
 const Container = styled.div`
   display: flex;
@@ -11,10 +12,12 @@ const Container = styled.div`
 
 const TransactionsPage = () => {
   return (
-    <Container>
-      <InputBarWidget />
-      <TransactionListWidget />
-    </Container>
+    <InputBarProvider>
+      <Container>
+        <InputBarWidget />
+        <TransactionListWidget />
+      </Container>
+    </InputBarProvider>
   );
 };
 
