@@ -25,21 +25,8 @@ const ItemsWrapper = styled.div`
   flex-direction: column;
   width: 100;
   border-top: 0.5px solid ${({ theme }) => theme.tokens.nuetral.border.default};
-  border-bottom: 0.5px solid ${({ theme }) => theme.tokens.nuetral.border.default};
-`;
-
-// 스크롤을 적용할 영역
-const ScrollableSections = styled.div`
-  overflow-y: auto; // 세로 스크롤 자동 생성
-  max-height: calc(100vh - 350px); // 최대 높이 지정 (뷰포트 높이의 60%)
-  display: flex;
-  flex-direction: column;
-  gap: 40px; // Container의 gap과 일치시킬 수 있음
-
-  // 스크롤바 스타일링 (선택 사항)
-  &::-webkit-scrollbar {
-    display: none;
-  }
+  border-bottom: 0.5px solid
+    ${({ theme }) => theme.tokens.nuetral.border.default};
 `;
 
 export const TransactionList: React.FC = () => {
@@ -63,21 +50,21 @@ export const TransactionList: React.FC = () => {
         onToggleIncome={toggleIncome}
         onToggleExpense={toggleExpense}
       />
-      {/* 스크롤 컨테이너 추가 */}
-      <ScrollableSections>
-        {dailyList.map(
-          ({ dailyInfo: { date, incomeTotal: inc, expenseTotal: exp }, transactions }: any) => (
-            <Section key={date}>
-              <DailyInfo date={date} incomeTotal={inc} expenseTotal={exp} />
-              <ItemsWrapper>
-                {transactions.map((tx: Transaction) => (
-                  <TransactionListItem key={tx.id} transaction={tx} />
-                ))}
-              </ItemsWrapper>
-            </Section>
-          )
-        )}
-      </ScrollableSections>
+      {dailyList.map(
+        ({
+          dailyInfo: { date, incomeTotal: inc, expenseTotal: exp },
+          transactions,
+        }: any) => (
+          <Section key={date}>
+            <DailyInfo date={date} incomeTotal={inc} expenseTotal={exp} />
+            <ItemsWrapper>
+              {transactions.map((tx: Transaction) => (
+                <TransactionListItem key={tx.id} transaction={tx} />
+              ))}
+            </ItemsWrapper>
+          </Section>
+        )
+      )}
     </Container>
   );
 };
